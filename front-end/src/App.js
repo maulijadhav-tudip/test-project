@@ -18,6 +18,7 @@ import HotEnvironment from "./Admin/HotEnvironment";
 import Settings from "./Admin/Settings";
 import SelfTest from "./Admin/SelfTest";
 import TestTemplate from "./Admin/TestTemplate";
+import EditTestTemplate from "./Admin/EditTestTemplate";
 import NewTemplate from "./Admin/NewTemplate";
 import Classes from "./Admin/Classes";
 import PrivateRoute from "./Utils/PrivateRoute";
@@ -211,6 +212,13 @@ class App extends Component {
             isAuthenticated={this.state.isAuthenticated}
             role={this.state.role}
             component={TestTemplate}
+          />
+          <PrivateRoute
+            exact
+            path="/edit-test-template"
+            isAuthenticated={this.state.isAuthenticated}
+            role={this.state.role}
+            component={EditTestTemplate}
           />
           <PrivateRoute
             exact

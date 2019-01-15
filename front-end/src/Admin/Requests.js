@@ -185,7 +185,6 @@ class Requests extends Component {
       toggleAll,
       selectType: "checkbox"
     };
-    console.log("data request---->",data);
     const columns = [
       {
         Header: "Email",

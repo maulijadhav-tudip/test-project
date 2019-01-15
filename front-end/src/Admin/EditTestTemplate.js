@@ -13,15 +13,13 @@ const buttonStyle = {
   color: 'white',
 }
 
-class Request extends Component {
+class EditTestTemplate extends Component {
   static propTypes = {
     welcome: PropTypes.string.isRequired
   };
 
   constructor(props) {
     super(props);
-    this.requestFunc = this.requestFunc.bind(this);
-    this.changeLab = this.changeLab.bind(this);
 
     this.state = {
       selectedLab: {},
@@ -31,76 +29,6 @@ class Request extends Component {
       redir: false,
       loadedForm: false,
     };
-  }
-
-  changeLab(lab) {
-    this.setState({selectedLab: lab});
-  }
-
-  requestFunc(e) {
-    let headers = new Headers();
-    headers.append(
-      "Authorization",
-      "Basic " + base64.encode(window.localStorage.getItem("authToken") + ":x")
-    );
-    e.preventDefault();
-    this.setState({
-      notification: true,
-      notificationText: "Request Submitting....",
-      notificationType: "notification is-info"
-    });
-    let formData = new FormData();
-
-    formData.append("name", this.refs.name.value);
-    formData.append("description", this.refs.description.value);
-    formData.append("test1", this.refs.test1.checked);
-    formData.append("test2", this.refs.test2.checked);
-    formData.append("test3", this.refs.test3.checked);
-    formData.append("vmname", this.refs.vmname.value);
-    formData.append("vmusername", this.refs.vmusername.value);
-    formData.append("password", this.refs.password.value);
-
-    fetch("/api/ravello/create-tests", {
-      method: "POST",
-      body: formData,
-      headers: headers,
-    })
-      .then(
-        function (data) {
-          if (data.status === 200) {
-            this.setState({
-              notification: true,
-              notificationText:
-                "The request has been successfully submitted. Please check your email for your login credentials and then click the link below to login.",
-              notificationType: "notification is-success",
-              redir: true
-            });
-          } else if (data.status === 403) {
-            this.setState({
-              notification: true,
-              notificationText: "Too Many Requests!",
-              notificationType: "notification is-danger"
-            });
-          } else if (data.status === 401) {
-            this.setState({
-              notification: true,
-              notificationText:
-                "We can not verify this email. Please contact the administrator for more details.",
-              notificationType: "notification is-danger"
-            });
-          } else {
-            this.setState({
-              notification: true,
-              notificationText:
-                "An error has occured submitting the request. Please Try again. If the error persists please contact the administrator.",
-              notificationType: "notification is-danger"
-            });
-          }
-        }.bind(this)
-      )
-      .catch(function (error) {
-        console.log("Request failure: ", error);
-      });
   }
 
   render() {
@@ -118,7 +46,7 @@ class Request extends Component {
               {!this.state.redir ? (
                 <form onSubmit={this.requestFunc} method="post">
                   <div style={headStyle}>
-                    <label className="label">New Self Test Template</label>
+                    <label className="label">Edit Test Template</label>
                   </div>
 
                   <div className="field is-horizontal">
@@ -325,5 +253,5 @@ class Request extends Component {
   }
 }
 
-export default Request;
+export default EditTestTemplate;
 
