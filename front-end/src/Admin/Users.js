@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import base64 from "base-64";
 import "whatwg-fetch";
 import ReactTable from "react-table";
@@ -6,9 +6,9 @@ import moment from "moment-timezone";
 import "react-table/react-table.css";
 import matchSorter from "match-sorter";
 import checkboxHOC from "react-table/lib/hoc/selectTable";
-import { Link } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
-import { confirmAlert } from "react-confirm-alert";
+import {Link} from "react-router-dom";
+import {LinkContainer} from "react-router-bootstrap";
+import {confirmAlert} from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 import Scheduler from "./components/Scheduler";
@@ -44,6 +44,7 @@ class Users extends Component {
       lastSelection: ""
     };
   }
+
   getUsers() {
     let headers = new Headers();
     headers.append(
@@ -55,7 +56,7 @@ class Users extends Component {
       method: "GET",
       headers: headers
     })
-      .then(function(response) {
+      .then(function (response) {
         return response.json();
       })
       .then(json => {
@@ -74,21 +75,23 @@ class Users extends Component {
             filterable: true,
             sortable: true,
             resizable: true,
-            pageSizeOptions: pageSizeOptions.sort(function(a, b) {
+            pageSizeOptions: pageSizeOptions.sort(function (a, b) {
               return a - b;
             })
           },
           data: json
         });
       })
-      .catch(function(ex) {
+      .catch(function (ex) {
         console.log(ex);
       });
   }
+
   componentDidMount() {
     this.getUsers();
     this.interval = setInterval(() => this.getUsers(), 60000);
   }
+
   componentWillUnmount() {
     clearInterval(this.interval);
   }
@@ -114,10 +117,10 @@ class Users extends Component {
         if (currentRecords[x].email !== this.state.lastSelection)
           keys.push(currentRecords[x].email);
       }
-      this.setState({ lastSelection: "" });
+      this.setState({lastSelection: ""});
     } else {
       keys.push(clickedKey);
-      this.setState({ lastSelection: clickedKey });
+      this.setState({lastSelection: clickedKey});
     }
     let selection = [...this.state.selection];
     keys.forEach(key => {
@@ -131,7 +134,7 @@ class Users extends Component {
         selection.push(key);
       }
     });
-    this.setState({ selection });
+    this.setState({selection});
   };
 
   toggleAll = () => {
@@ -152,7 +155,7 @@ class Users extends Component {
         selection.push(item._original.email);
       });
     }
-    this.setState({ selectAll, selection });
+    this.setState({selectAll, selection});
   };
 
   isSelected = key => {
@@ -166,18 +169,18 @@ class Users extends Component {
       headers.append(
         "Authorization",
         "Basic " +
-          base64.encode(window.localStorage.getItem("authToken") + ":x")
+        base64.encode(window.localStorage.getItem("authToken") + ":x")
       );
       fetch(`/api/users/${x}/delete`, {
         method: "POST",
         headers: headers
       }).then(
-        function(response) {
+        function (response) {
           this.getUsers();
         }.bind(this)
       );
     });
-    this.setState({ selection: [] });
+    this.setState({selection: []});
   }
 
   extendSelection() {
@@ -190,20 +193,21 @@ class Users extends Component {
       headers.append(
         "Authorization",
         "Basic " +
-          base64.encode(window.localStorage.getItem("authToken") + ":x")
+        base64.encode(window.localStorage.getItem("authToken") + ":x")
       );
       fetch(`/api/users/${x}/extend`, {
         method: "POST",
         body: formData,
         headers: headers
       }).then(
-        function(response) {
+        function (response) {
           this.getUsers();
         }.bind(this)
       );
     });
-    this.setState({ selection: [] });
+    this.setState({selection: []});
   }
+
   resetSelection() {
     let selection = this.state.selection;
     selection.forEach(x => {
@@ -211,19 +215,20 @@ class Users extends Component {
       headers.append(
         "Authorization",
         "Basic " +
-          base64.encode(window.localStorage.getItem("authToken") + ":x")
+        base64.encode(window.localStorage.getItem("authToken") + ":x")
       );
       fetch(`/api/users/${x}/reset`, {
         method: "POST",
         headers: headers
       }).then(
-        function(response) {
+        function (response) {
           this.getUsers();
         }.bind(this)
       );
     });
-    this.setState({ selection: [] });
+    this.setState({selection: []});
   }
+
   upload(x) {
     var data = new FormData();
     data.append("file", x.target.files[0]);
@@ -240,17 +245,18 @@ class Users extends Component {
       body: data
     })
       .then(
-        function(response) {
+        function (response) {
           this.getUsers();
         }.bind(this)
       )
-      .catch(function(ex) {
+      .catch(function (ex) {
         console.log(ex);
       });
   }
+
   render() {
-    const { toggleSelection, toggleAll, isSelected } = this;
-    const { data, selectAll } = this.state;
+    const {toggleSelection, toggleAll, isSelected} = this;
+    const {data, selectAll} = this.state;
     const checkboxProps = {
       selectAll,
       isSelected,
@@ -263,14 +269,14 @@ class Users extends Component {
         Header: "Email",
         accessor: "email",
         filterMethod: (filter, rows) =>
-          matchSorter(rows, filter.value, { keys: ["email"] }),
+          matchSorter(rows, filter.value, {keys: ["email"]}),
         filterAll: true
       },
       {
         Header: "Lab",
         accessor: "lab.name",
         filterMethod: (filter, rows) =>
-          matchSorter(rows, filter.value, { keys: ["lab"] }),
+          matchSorter(rows, filter.value, {keys: ["lab"]}),
         filterAll: true
       },
 
@@ -303,7 +309,7 @@ class Users extends Component {
         accessor: "createdApp",
         Cell: row => row.value.toString(),
         filterMethod: (filter, rows) =>
-          matchSorter(rows, filter.value, { keys: ["createdApp"] }),
+          matchSorter(rows, filter.value, {keys: ["createdApp"]}),
         filterAll: true
       },
       {
@@ -311,7 +317,7 @@ class Users extends Component {
         accessor: "createdToken",
         Cell: row => row.value.toString(),
         filterMethod: (filter, rows) =>
-          matchSorter(rows, filter.value, { keys: ["createdToken"] }),
+          matchSorter(rows, filter.value, {keys: ["createdToken"]}),
         filterAll: true
       },
       {
@@ -319,14 +325,14 @@ class Users extends Component {
         accessor: "loggedIn",
         Cell: row => row.value.toString(),
         filterMethod: (filter, rows) =>
-          matchSorter(rows, filter.value, { keys: ["loggedIn"] }),
+          matchSorter(rows, filter.value, {keys: ["loggedIn"]}),
         filterAll: true
       },
       {
         Header: "Role",
         accessor: "role",
         filterMethod: (filter, rows) =>
-          matchSorter(rows, filter.value, { keys: ["role"] }),
+          matchSorter(rows, filter.value, {keys: ["role"]}),
         filterAll: true
       },
       {
@@ -361,14 +367,14 @@ class Users extends Component {
                       className="button is-info"
                       onClick={() => {
                         confirmAlert({
-                          customUI: ({ onClose }) => {
+                          customUI: ({onClose}) => {
                             return (
                               <div className="custom-ui">
                                 <h1>
                                   Upload a CSV file with a single column
                                   containing emails to add.
                                 </h1>
-                                <input type="file" onChange={this.upload} />
+                                <input type="file" onChange={this.upload}/>
 
                                 <div className="field is-grouped">
                                   <p className="control">
@@ -394,7 +400,7 @@ class Users extends Component {
                       className="button is-info"
                       onClick={() => {
                         confirmAlert({
-                          customUI: ({ onClose }) => {
+                          customUI: ({onClose}) => {
                             return (
                               <div className="custom-ui">
                                 <h1>Enter new environment end time.</h1>
@@ -442,7 +448,7 @@ class Users extends Component {
                       className="button is-danger"
                       onClick={() => {
                         confirmAlert({
-                          customUI: ({ onClose }) => {
+                          customUI: ({onClose}) => {
                             return (
                               <div className="custom-ui">
                                 <h1>
@@ -483,7 +489,7 @@ class Users extends Component {
                       className="button is-danger"
                       onClick={() => {
                         confirmAlert({
-                          customUI: ({ onClose }) => {
+                          customUI: ({onClose}) => {
                             return (
                               <div className="custom-ui">
                                 <h1>
@@ -522,8 +528,8 @@ class Users extends Component {
                   </p>
                 </div>
               </div>
-              <div className="column" />
-              <div className="column" />
+              <div className="column"/>
+              <div className="column"/>
             </div>
 
             <div className="box">

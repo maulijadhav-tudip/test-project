@@ -10,7 +10,7 @@ const headStyle = {
 const saveButtonStyle = {
   background: '#00ACDC',
   color: 'white',
-  width:'74px',
+  width: '74px',
 }
 const cancelButtonStyle = {
   background: '#00ACDC',

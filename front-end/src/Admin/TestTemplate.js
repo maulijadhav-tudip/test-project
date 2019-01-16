@@ -7,9 +7,9 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 import base64 from "base-64";
 import {Link} from "react-router-dom";
 
-const buttonStyle={
-    width: '30%',
-    'margin-left': '121px',
+const buttonStyle = {
+  width: '30%',
+  'margin-left': '121px',
 }
 
 class TestTemplate extends Component {
@@ -43,7 +43,7 @@ class TestTemplate extends Component {
       "Basic " + base64.encode(window.localStorage.getItem("authToken") + ":x")
     );
 
-    fetch("/api/ravello/test-templates", {
+    fetch("/api/ravello/test-template", {
       method: "GET",
       headers: headers,
     })

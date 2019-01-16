@@ -382,53 +382,45 @@ def publish_or_assign_env_to_user(user,enteredClass):
 
 
 # create test template API
-@flaskapp.route('/api/ravello/test-template', methods=['POST'])
+@flaskapp.route('/api/ravello/test-template', methods=['POST','GET'])
 def create_template():
-    test_template = {
-            "name": request.form['name'],
-            "description": request.form['description'],
-            "testNames": ["test1",
-                         "test2",
-                         "test3"],
-            "testParams": {
+    if request.method == 'POST':
+        test_template = {
+                "name": request.form['name'],
+                "description": request.form['description'],
+                "testNames": ["test1",
+                             "test2",
+                             "test3"],
+                "testParams": {
 
-                    "vmname": request.form["vmname"],
-                    "vmusername": request.form["vmusername"],
-                    "vmpassword": request.form["password"]
-            }
-         }
-    flaskapp.config['TEST_COLLECTION'].insert_one(test_template)
-    return jsonify({"status": "OK"}), 200
+                        "vmname": request.form["vmname"],
+                        "vmusername": request.form["vmusername"],
+                        "vmpassword": request.form["password"]
+                }
+             }
+        flaskapp.config['TEST_TEMPLATES_COLLECTION'].insert_one(test_template)
+        return jsonify({"status": "OK"}), 200
 
+    if request.method == 'GET':
+        tests = flaskapp.config['TEST_TEMPLATES_COLLECTION'].find()
+        list_details = []
+        for i in tests:
+            list_details.append({"name": i['name'], "description": i['description']})
+        return jsonify({"test_details": list_details}), 200
 
-# test collection details API
-@flaskapp.route('/api/ravello/test-templates', methods=['GET'])
-def get_details():
-    tests = flaskapp.config['TEST_COLLECTION'].find()
-    list_details = []
-    for i in tests:
-        list_details.append({"name": i['name'], "description": i['description']})
-    return jsonify({"test_details": list_details}), 200
-
-
-# create environment API
-@flaskapp.route('/api/ravello/env-create', methods=['GET'])
-def create_env():
-    my_env = [{"name": env} for env in ["Env A", "Env B", "Env C", "Env D", "Env E"]]
-    flaskapp.config['ENV_COLLECTION'].insert(my_env)
-    return jsonify({'ok': True, 'message': 'Listed environment'}), 200
+    return Response("BAD REQUESTS"), 400
 
 
 # show test details API
 @flaskapp.route('/api/ravello/test-detail', methods=['POST', 'GET'])
 def test_details():
     if request.method == 'GET':
-        temp_name = flaskapp.config['TEST_COLLECTION'].find({}, {"name": 1, "_id": 0})
+        temp_name = flaskapp.config['TEST_TEMPLATES_COLLECTION'].find({}, {"name": 1, "_id": 0})
         template_count = [temp_name[i] for i in range(temp_name.count())]
         templateName = []
         for i in range(len(template_count)):
             templateName.append(template_count[i]['name'])
-        env_name = flaskapp.config['ENV_COLLECTION'].find({}, {'name': 1, '_id': 0})
+        env_name = flaskapp.config['ENVIRONMENTS_COLLECTION'].find({}, {'name': 1, '_id': 0})
         list_env_details = []
         for i in env_name:
             list_env_details.append({"Env": i['name'], "template_name": templateName})
@@ -436,11 +428,11 @@ def test_details():
 
     if request.method == 'POST':
         test_detail = {
-            "Env": request.form['Env'],
-            "TestStatus": request.form['TestStatus'],
-            "Assigned": request.form['Assigned'],
-            "Classes": request.form['Classes'],
-            "TestTemplate": request.form['TestTemplate']
+            "environment": request.form['Env'],
+            "status": request.form['TestStatus'],
+            "assigned": request.form['Assigned'],
+            "class": request.form['Class'],
+            "testTemplate": request.form['TestTemplate']
         }
         flaskapp.config['ENV_TEST_DETAILS_COLLECTION'].insert(test_detail)
         return jsonify({"status": "OK"}), 200

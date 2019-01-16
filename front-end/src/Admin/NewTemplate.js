@@ -12,11 +12,11 @@ const buttonStyle = {
   background: '#00ACDC',
   color: 'white',
 }
-const textAreaStyle={
+const textAreaStyle = {
   width: '250px',
-  height:'auto',
+  height: 'auto',
 }
-const parameterStyle={
+const parameterStyle = {
   'padding-top': '35px',
   'padding-right': '310px',
 }
@@ -68,8 +68,6 @@ class Request extends Component {
     formData.append("vmname", this.refs.vmname.value);
     formData.append("vmusername", this.refs.vmusername.value);
     formData.append("password", this.refs.password.value);
-
-    // console.log("formdata------>", formData);
 
     fetch("/api/ravello/test-template", {
       method: "POST",

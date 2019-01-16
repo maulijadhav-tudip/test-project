@@ -43,8 +43,6 @@ BLACKLIST = DATABASE.blacklist
 WHITELIST = DATABASE.whitelist
 REQUEST_ARCHIVE = DATABASE.requestLogs
 HOT_COLLECTION = DATABASE.hot
-TEST_COLLECTION = DATABASE.testTemplates # <-- test template config
-ENV_COLLECTION = DATABASE.testDetails # <-- environment collection
-ENV_TEST_DETAILS_COLLECTION = DATABASE.envTestDetails # <-- environment test details
-
-TEST_COLLECTION = DATABASE.testTemplates  # <-- test config
+TEST_TEMPLATES_COLLECTION = DATABASE.testTemplates
+ENVIRONMENTS_COLLECTION = DATABASE.environments
+ENV_TEST_DETAILS_COLLECTION = DATABASE.environmentTests

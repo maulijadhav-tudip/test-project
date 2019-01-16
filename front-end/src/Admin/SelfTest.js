@@ -8,16 +8,16 @@ import {Link} from "react-router-dom";
 
 const CheckboxTable = checkboxHOC(ReactTable);
 
-const restartButtonStyle={
+const restartButtonStyle = {
   'width': '50%',
-   'margin-left': '40px',
+  'margin-left': '40px',
 }
 
 class SelfTest extends Component {
   constructor(props) {
     super(props);
     this.getRequests = this.getRequests.bind(this);
-    this.postRequest = this.postRequest.bind(this);
+    this.postMultipleRequest = this.postMultipleRequest.bind(this);
 
     this.state = {
       tableOptions: {
@@ -88,7 +88,7 @@ class SelfTest extends Component {
           Class: "class",
           TestStatus: "Pass",
           TestTemplate: "test2",
-          Restart: "Restart"
+          Restart: "Restart",
         },
       ],
       selectedData: [],
@@ -102,7 +102,7 @@ class SelfTest extends Component {
       "Basic " + base64.encode(window.localStorage.getItem("authToken") + ":x")
     );
 
-    fetch("/api/ravello/test-templates", {
+    fetch("/api/ravello/test-template", {
       method: "GET",
       headers: headers
     })
@@ -137,35 +137,34 @@ class SelfTest extends Component {
       });
   }
 
-  postRequest(e) {
-    let headers = new Headers();
-    headers.append(
-      "Authorization",
-      "Basic " + base64.encode(window.localStorage.getItem("authToken") + ":x")
-    );
-    e.preventDefault();
-    this.setState({
-      notification: true,
-      notificationText: "Request Submitting....",
-      notificationType: "notification is-info"
-    });
-    const {selectedData} = this.state;
-    let formData = new FormData();
+  postMultipleRequest(e) {
+    let selection = this.state.selection;
+    selection.forEach(x => {
+      let headers = new Headers();
+      headers.append(
+        "Authorization",
+        "Basic " +
+        base64.encode(window.localStorage.getItem("authToken") + ":x")
+      );
+      e.preventDefault();
+      this.setState({
+        notification: true,
+        notificationText: "Request Submitting....",
+        notificationType: "notification is-info",
+      });
 
-    formData.append("Env", selectedData.Env);
-    formData.append("TestStatus", selectedData.TestStatus);
-    formData.append("Assigned", selectedData.Assigned);
-    formData.append("Classes", selectedData.Classes);
-    formData.append("TestTemplate", selectedData.TestTemplate);
+      let formData = new FormData();
+      formData.append("Env", x.Env);
+      formData.append("TestStatus", x.TestStatus);
+      formData.append("Assigned", x.Assigned);
+      formData.append("Class", x.Class);
+      formData.append("TestTemplate", x.TestTemplate);
 
-    console.log("selected----->",selectedData);
-
-    fetch("/api/ravello/test-detail", {
-      method: "POST",
-      body: formData,
-      headers: headers,
-    })
-      .then(
+      fetch(`/api/ravello/test-detail`, {
+        method: "POST",
+        body: formData,
+        headers: headers,
+      }).then(
         function (data) {
           if (data.status === 200) {
             this.setState({
@@ -198,9 +197,11 @@ class SelfTest extends Component {
           }
         }.bind(this)
       )
-      .catch(function (error) {
-        console.log("Request failure: ", error);
-      });
+        .catch(function (error) {
+          console.log("Request failure: ", error);
+        });
+    });
+    this.setState({selection: []});
   }
 
   componentDidMount() {
@@ -222,12 +223,40 @@ class SelfTest extends Component {
   toggleSelection = (clickedKey, shift, row) => {
     const {selectedData} = this.state;
     selectedData.push(row);
+    let keys = [];
+    if (shift && this.state.lastSelection !== "") {
+      const wrappedInstance = this.checkboxTable.getWrappedInstance();
+
+      let currentRecords = wrappedInstance.getResolvedState().sortedData;
+      const state = wrappedInstance.getResolvedState();
+
+      currentRecords = currentRecords.slice(
+        state.page * state.pageSize,
+        (state.page + 1) * state.pageSize
+      );
+
+      let last = currentRecords.findIndex(
+        x => x.email === this.state.lastSelection
+      );
+      let current = currentRecords.findIndex(x => x.email === clickedKey);
+      for (let x = Math.min(last, current); x <= Math.max(last, current); x++) {
+        if (currentRecords[x].email !== this.state.lastSelection)
+          keys.push(currentRecords[x].email);
+      }
+      this.setState({lastSelection: ""});
+    } else {
+      keys.push(clickedKey);
+      this.setState({lastSelection: clickedKey});
+    }
+    let selection = [...this.state.selection];
+    keys.forEach(key => {
+      selection.push(row);
+    });
+    this.setState({selection});
 
   };
 
   render() {
-    // const message = this.state.notificationText;
-    // const type = this.state.notificationType;
     const {data, tableData} = this.state;
     const optionItems = data.map((data) =>
       <option value={data.name} key={data.name}>{data.name}</option>
@@ -278,7 +307,7 @@ class SelfTest extends Component {
           <Link
             to={`/users/${row.value}`}
             className="button is-info is-fullwidth"
-            style={restartButtonStyle }
+            style={restartButtonStyle}
           >
             Restart
           </Link>
@@ -287,36 +316,36 @@ class SelfTest extends Component {
     ];
 
     return (
-    <div>
-      <section className="section">
-        <div className="container is-fluid">
-          <div className="columns">
-            <div className="column">
-              <div className="field is-grouped">
-                <p className="control">
-                  <button onClick={this.postRequest} className="button is-info is-fullwidth">
-                    Select and Run Test
-                  </button>
-                </p>
+      <div>
+        <section className="section">
+          <div className="container is-fluid">
+            <div className="columns">
+              <div className="column">
+                <div className="field is-grouped">
+                  <p className="control">
+                    <button onClick={this.postMultipleRequest} className="button is-info is-fullwidth">
+                      Select and Run Test
+                    </button>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="box">
-            <CheckboxTable
-              keyField="id"
-              ref={r => (this.checkboxTable = r)}
-              className="-striped -highlight"
-              data={tableData}
-              columns={columns}
-              {...checkboxProps}
-            />
+            <div className="box">
+              <CheckboxTable
+                keyField="id"
+                ref={r => (this.checkboxTable = r)}
+                className="-striped -highlight"
+                data={tableData}
+                columns={columns}
+                {...checkboxProps}
+              />
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
-  )
-    ;
+        </section>
+      </div>
+    )
+      ;
   }
 }
 
