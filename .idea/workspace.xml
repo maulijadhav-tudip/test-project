@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b705cc21-a99c-4385-9f4c-8d6e7884a7ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ravello.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/ravello.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/Admin/EditTestTemplate.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Admin/EditTestTemplate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/Admin/NewTemplate.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Admin/NewTemplate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/Admin/Requests.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Admin/Requests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/Admin/SelfTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Admin/SelfTest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/Admin/TestTemplate.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Admin/TestTemplate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/App.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,11 +18,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front-end/src/Admin/SelfTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="146" selection-start-line="146" selection-end-line="146" />
+            <state relative-caret-position="375">
+              <caret line="280" column="38" selection-start-line="280" selection-start-column="38" selection-end-line="280" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front-end/src/Admin/NewTemplate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-861">
+              <caret line="219" column="50" lean-forward="true" selection-start-line="219" selection-start-column="50" selection-end-line="219" selection-end-column="50" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -34,22 +45,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front-end/src/Admin/TestTemplate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="46" column="8" lean-forward="true" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+            <state relative-caret-position="1635">
+              <caret line="109" column="10" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front-end/src/Admin/NewTemplate.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="91" column="27" lean-forward="true" selection-start-line="91" selection-start-column="27" selection-end-line="91" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,8 +57,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front-end/src/Admin/Requests.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="713">
-              <caret line="178" column="27" selection-start-line="178" selection-start-column="12" selection-end-line="178" selection-end-column="27" />
+            <state relative-caret-position="368">
+              <caret line="90" column="8" lean-forward="true" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front-end/src/Admin/Users.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-360">
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -70,20 +80,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front-end/src/Admin/EditTestTemplate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1687">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="270">
+              <caret line="228" column="57" selection-start-line="228" selection-start-column="57" selection-end-line="228" selection-end-column="57" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="250" column="34" lean-forward="true" selection-start-line="250" selection-start-column="34" selection-end-line="250" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -91,8 +92,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="7" column="72" lean-forward="true" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
+            <state relative-caret-position="488">
+              <caret line="49" column="59" lean-forward="true" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/ravello.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3653">
+              <caret line="442" column="54" selection-start-line="442" selection-start-column="54" selection-end-line="442" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -128,8 +141,9 @@
       <find>data</find>
       <find>des</find>
       <find>checkboxProps</find>
-      <find>console</find>
       <find>toggleselection</find>
+      <find>console</find>
+      <find>type</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -139,7 +153,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/front-end/src/Admin/SelectAndRunTests.js" />
-        <option value="$PROJECT_DIR$/front-end/src/App.css" />
         <option value="$PROJECT_DIR$/front-end/src/Admin/Classes.js" />
         <option value="$PROJECT_DIR$/front-end/src/Admin/Settings.js" />
         <option value="$PROJECT_DIR$/front-end/src/Admin/Whitelist.js" />
@@ -148,12 +161,14 @@
         <option value="$PROJECT_DIR$/front-end/src/App.js" />
         <option value="$PROJECT_DIR$/front-end/src/Admin/Nav.js" />
         <option value="$PROJECT_DIR$/config.py" />
-        <option value="$PROJECT_DIR$/front-end/src/Admin/TestTemplate.js" />
-        <option value="$PROJECT_DIR$/front-end/src/Admin/EditTestTemplate.js" />
+        <option value="$PROJECT_DIR$/front-end/src/Admin/Requests.js" />
         <option value="$PROJECT_DIR$/app/views.py" />
         <option value="$PROJECT_DIR$/front-end/src/Admin/NewTemplate.js" />
-        <option value="$PROJECT_DIR$/front-end/src/Admin/Requests.js" />
+        <option value="$PROJECT_DIR$/front-end/src/App.css" />
+        <option value="$PROJECT_DIR$/app/ravello.py" />
+        <option value="$PROJECT_DIR$/front-end/src/Admin/TestTemplate.js" />
         <option value="$PROJECT_DIR$/front-end/src/Admin/SelfTest.js" />
+        <option value="$PROJECT_DIR$/front-end/src/Admin/EditTestTemplate.js" />
       </list>
     </option>
   </component>
@@ -168,12 +183,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="cloudspin-test" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloudspin-test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloudspin-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloudspin-test" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloudspin-test" type="b2602c69:ProjectViewProjectNode" />
@@ -197,7 +218,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -233,18 +253,19 @@
       <workItem from="1547186705381" duration="11544000" />
       <workItem from="1547442999633" duration="1475000" />
       <workItem from="1547446101836" duration="43273000" />
-      <workItem from="1547547391869" duration="15034000" />
+      <workItem from="1547547391869" duration="20739000" />
+      <workItem from="1547616017869" duration="10826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113679000" />
+    <option name="totallyTimeSpent" value="130210000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1816733" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18486056" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -294,23 +315,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/front-end/src/App.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front-end/node_modules/bulma/css/bulma.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret column="65948" selection-start-column="65948" selection-end-column="65948" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front-end/node_modules/bulma-extensions/bulma-tagsinput/dist/css/bulma-tagsinput.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front-end/node_modules/bulma/sass/elements/form.sass">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1890">
@@ -350,22 +354,6 @@
           <folding>
             <element signature="e#0#52#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ravello.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front-end/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43095">
-          <caret line="2873" column="9" selection-start-line="2873" selection-start-column="9" selection-end-line="2873" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -536,15 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/cloudshare.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front-end/node_modules/whatwg-fetch/fetch.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1650">
@@ -588,15 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/users.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3472">
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2534" />
@@ -623,15 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="103" column="21" lean-forward="true" selection-start-line="103" selection-start-column="21" selection-end-line="104" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front-end/src/Admin/Users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-495">
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -668,66 +629,135 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front-end/src/Admin/EditTestTemplate.js">
+    <entry file="file://$PROJECT_DIR$/app/users.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1687">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state>
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front-end/src/Admin/TestTemplate.js">
+    <entry file="file://$PROJECT_DIR$/app/user.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/cloudshare.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="46" column="8" lean-forward="true" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+        <state>
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run-dev.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#18#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/student.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="789">
+          <caret line="138" column="28" lean-forward="true" selection-start-line="138" selection-start-column="28" selection-end-line="138" selection-end-column="28" />
+          <folding>
+            <element signature="e#44#68#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="7" column="72" lean-forward="true" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
+        <state relative-caret-position="488">
+          <caret line="49" column="59" lean-forward="true" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views.py">
+    <entry file="file://$PROJECT_DIR$/front-end/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="250" column="34" lean-forward="true" selection-start-line="250" selection-start-column="34" selection-end-line="250" selection-end-column="34" />
+        <state relative-caret-position="428">
+          <caret line="1469" column="22" lean-forward="true" selection-start-line="1469" selection-start-column="22" selection-end-line="1469" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front-end/src/Admin/Requests.js">
+    <entry file="file://$PROJECT_DIR$/app/ravello.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="178" column="27" selection-start-line="178" selection-start-column="12" selection-end-line="178" selection-end-column="27" />
+        <state relative-caret-position="3653">
+          <caret line="442" column="54" selection-start-line="442" selection-start-column="54" selection-end-line="442" selection-end-column="54" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front-end/src/Admin/NewTemplate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="91" column="27" lean-forward="true" selection-start-line="91" selection-start-column="27" selection-end-line="91" selection-end-column="27" />
+        <state relative-caret-position="-861">
+          <caret line="219" column="50" lean-forward="true" selection-start-line="219" selection-start-column="50" selection-end-line="219" selection-end-column="50" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front-end/src/Admin/TestTemplate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1635">
+          <caret line="109" column="10" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front-end/src/Admin/SelfTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="146" selection-start-line="146" selection-end-line="146" />
+        <state relative-caret-position="375">
+          <caret line="280" column="38" selection-start-line="280" selection-start-column="38" selection-end-line="280" selection-end-column="38" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front-end/src/Admin/EditTestTemplate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="228" column="57" selection-start-line="228" selection-start-column="57" selection-end-line="228" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front-end/src/Admin/Requests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="90" column="8" lean-forward="true" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front-end/src/Admin/Users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>

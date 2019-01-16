@@ -1,16 +1,24 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {LinkContainer} from "react-router-bootstrap";
-import base64 from "base-64";
 
 const headStyle = {
   position: 'relative',
   'text-align': 'center',
   'padding-bottom': '50px',
 }
-const buttonStyle = {
+const saveButtonStyle = {
   background: '#00ACDC',
   color: 'white',
+  width:'74px',
+}
+const cancelButtonStyle = {
+  background: '#00ACDC',
+  color: 'white',
+}
+const textAreaStyle = {
+  width: '250px',
+  height: 'auto',
 }
 
 class EditTestTemplate extends Component {
@@ -78,10 +86,9 @@ class EditTestTemplate extends Component {
                     <div className="field-body">
                       <div className="field">
                         <div className="control ">
-                          <input
+                          <textarea
                             className="input"
-                            style={{width: '250px'}}
-                            type="text"
+                            style={textAreaStyle}
                             placeholder="Test Description"
                             ref="description"
                             required
@@ -219,30 +226,19 @@ class EditTestTemplate extends Component {
 
                   </React.Fragment>
 
-                  <div style={{'padding-left': '920px'}}>
-                    <button type="button submit" className="button" style={buttonStyle}>
+                  <div style={{'padding-left': '905px'}}>
+                    <button type="button submit" className="button" style={saveButtonStyle}>
                       Save
                     </button>
                   </div>
                 </form>
               ) : (
                 <div>
-                  {this.state.selectedLab.type === "qwiklab_one" ? (
-                    <a
-                      className="button is-link"
-                      href="https://paloaltonetworks.qwiklabs.com/"
-                    >
-                      Login
-                    </a>
-                  ) : (
-                    <div>
-                      {this.state.selectedLab.type !== "cloudshare" ? (
-                        <LinkContainer to="/test-template">
-                          <a className="button is-link">Back</a>
-                        </LinkContainer>
-                      ) : null}
-                    </div>
-                  )}
+                  {this.state.selectedLab.type !== "cloudshare" ? (
+                    <LinkContainer to="/test-template">
+                      <a className="button is-link">Back</a>
+                    </LinkContainer>
+                  ) : null}
                 </div>
               )}
             </div>

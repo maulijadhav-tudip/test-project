@@ -12,6 +12,14 @@ const buttonStyle = {
   background: '#00ACDC',
   color: 'white',
 }
+const textAreaStyle={
+  width: '250px',
+  height:'auto',
+}
+const parameterStyle={
+  'padding-top': '35px',
+  'padding-right': '310px',
+}
 
 class Request extends Component {
   static propTypes = {
@@ -49,6 +57,7 @@ class Request extends Component {
       notificationText: "Request Submitting....",
       notificationType: "notification is-info"
     });
+
     let formData = new FormData();
 
     formData.append("name", this.refs.name.value);
@@ -60,7 +69,9 @@ class Request extends Component {
     formData.append("vmusername", this.refs.vmusername.value);
     formData.append("password", this.refs.password.value);
 
-    fetch("/api/ravello/create-tests", {
+    // console.log("formdata------>", formData);
+
+    fetch("/api/ravello/test-template", {
       method: "POST",
       body: formData,
       headers: headers,
@@ -150,10 +161,9 @@ class Request extends Component {
                     <div className="field-body">
                       <div className="field">
                         <div className="control ">
-                          <input
+                          <textarea
                             className="input"
-                            style={{width: '250px'}}
-                            type="text"
+                            style={textAreaStyle}
                             placeholder="Test Description"
                             ref="description"
                             required
@@ -161,7 +171,7 @@ class Request extends Component {
                         </div>
                       </div>
                     </div>
-                    <label className="label" style={{'padding-right': '310px'}}>Parameters:</label>
+                    <label className="label" style={parameterStyle}>Parameters:</label>
                   </div>
 
                   <React.Fragment>
@@ -277,7 +287,7 @@ class Request extends Component {
                             <div className="control ">
                               <input
                                 className="input"
-                                type="text"
+                                type="password"
                                 ref="password"
                                 placeholder="Password"
                                 required
@@ -299,22 +309,11 @@ class Request extends Component {
                 </form>
               ) : (
                 <div>
-                  {this.state.selectedLab.type === "qwiklab_one" ? (
-                    <a
-                      className="button is-link"
-                      href="https://paloaltonetworks.qwiklabs.com/"
-                    >
-                      Login
-                    </a>
-                  ) : (
-                    <div>
-                      {this.state.selectedLab.type !== "cloudshare" ? (
-                        <LinkContainer to="/test-template">
-                          <a className="button is-link">Back</a>
-                        </LinkContainer>
-                      ) : null}
-                    </div>
-                  )}
+                  {this.state.selectedLab.type !== "cloudshare" ? (
+                    <LinkContainer to="/test-template">
+                      <a className="button is-link">Back</a>
+                    </LinkContainer>
+                  ) : null}
                 </div>
               )}
             </div>

@@ -7,6 +7,11 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 import base64 from "base-64";
 import {Link} from "react-router-dom";
 
+const buttonStyle={
+    width: '30%',
+    'margin-left': '121px',
+}
+
 class TestTemplate extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +43,7 @@ class TestTemplate extends Component {
       "Basic " + base64.encode(window.localStorage.getItem("authToken") + ":x")
     );
 
-    fetch("/api/ravello/create-tests", {
+    fetch("/api/ravello/test-templates", {
       method: "GET",
       headers: headers,
     })
@@ -85,13 +90,11 @@ class TestTemplate extends Component {
       {
         Header: "Self-Test Template(Name)",
         accessor: "name",
-        headerStyle: {background: "#00acdc"},
         style: {"text-align": "center"},
       },
       {
         Header: "Description",
         accessor: "description",
-        headerStyle: {background: "#00acdc"},
         style: {"text-align": "center"},
       },
       {
@@ -100,11 +103,11 @@ class TestTemplate extends Component {
           <Link
             to="/edit-test-template"
             className="button is-info is-fullwidth"
+            style={buttonStyle}
           >
             Edit
           </Link>
         ),
-        headerStyle: {background: "#00acdc"}
       },
     ];
     return (
